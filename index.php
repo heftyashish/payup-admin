@@ -15,9 +15,9 @@ set_include_path(implode(PATH_SEPARATOR, array(
 )));
 
 /** Zend_Application */
-require_once 'Zend/Application.php';
-//set_include_path(implode(PATH_SEPARATOR, array(realpath(APPLICATION_PATH . '/library'),get_include_path(),)));
 set_include_path(get_include_path().PATH_SEPARATOR.'/usr/share/php/libzend-framework-php');
+require_once 'Zend/Application.php';
+
 // Create application, bootstrap, and run
 $application = new Zend_Application(
     APPLICATION_ENV,
