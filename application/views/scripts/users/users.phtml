@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico" />
+		
+		<title>DataTables example</title>
+		<link href="<?php echo BASE_URL.'public/css/dt/demo_page.css' ?>" rel="stylesheet">
+		<link href="<?php echo BASE_URL.'public/css/dt/demo_table.css' ?>" rel="stylesheet">		
+
+
+		<script type="text/javascript" language="javascript" src="<?php echo BASE_URL.'public/js/dt/jquery.dataTables.js' ?>"> 
+		</script>
+		<script type="text/javascript" language="javascript" src="<?php echo BASE_URL.'public/js/dt/jquery.js' ?>"> 
+		</script>		
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$('#example').dataTable( {
+					"fnInitComplete": function () {
+						var that = this;
+						this.$('td').click( function () {
+							that.fnFilter( this.innerHTML );
+						} );
+					}
+				} );
+			} );
+		</script>
+		
+</head>
+
+<body>
+	
+		<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+						<thead>
+								<tr>
+									<th> Firstname </th>
+									<th> Lastname </th>
+									<th> email </th>
+									<th> status </th>
+									<th> created_at </th>
+									<th> updated_at </th>
+									<br>
+								</tr>
+						</thead>
+						<tbody>
+					<?php
+						foreach ($this->data as $val) 
+							{ 
+								echo "<tr class=gradeA>";
+								echo "<td align='center'>".$val['firstname']."</td>"; 
+								echo "<td align='center'>".$val['lastname']."</td>"; 
+								echo "<td align='center'>".$val['email']."</td>"; 
+								echo "<td align='center'>".$val['status']."</td>"; 
+								echo "<td align='center'>".$val['created_at']."</td>"; 
+								echo "<td align='center'>".$val['updated_at']."</td>"; 							
+								echo "<br>";
+								echo "</tr>"; 
+							}				
+						?>
+						</tbody>
+			</table>			
+	
+	</body>
+</html>
