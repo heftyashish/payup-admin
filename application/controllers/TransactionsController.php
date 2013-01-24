@@ -16,7 +16,8 @@ public function transactiondetailsAction(){
 						if($this->getRequest()->isPost()) {
 								if(isset($_POST['submit'])) {
 											$type = $_POST['users'];
-				
+											// echo $type;
+											// die;
 											$from = $_POST['date_1'];
 											$fromdate = date("Y-m-d",strtotime($from));
 										
