@@ -1,0 +1,130 @@
+<script src="<?php echo BASE_URL.'public/js/jquery.js' ?>"> </script> 
+<script src="<?php echo BASE_URL.'public/js/jquery.tools.min.js' ?>"> </script>  
+<!-- dateinput styling -->
+<link href="<?php echo BASE_URL.'public/css/calendar.css' ?>" rel="stylesheet">   
+
+
+
+<!-- HTML5 date input -->
+
+<form action="calendar" method="post">
+    <div style="width: 500px;float:left;margin: 0 0 0 0;">
+     Find users based on : <br> <br> Date : &nbsp;&nbsp;
+        <select name="date_type" class="btn dropdown-toggle" autofocus style="width: 153px;">
+           <option value="created_at" >first appearance</option>
+           <option value="updated_at" >last seen</option>
+        </select>&nbsp;&nbsp; <br> <br>
+  Email : <select name="email" class="btn dropdown-toggle" class="dropdown-menu" id="themes" style="width: 86px;">
+           <option value="default" >default</option>
+           <option value="true" >true</option>
+           <option value="false" >false</option>
+        </select> &nbsp;&nbsp; 
+  T & C : <select name="toc" class="btn dropdown-toggle" class="dropdown-menu" id="themes" style="width: 86px;">
+           <option value="default" >default</option>
+           <option value="true" >true</option>
+           <option value="false" >false</option>
+        </select> &nbsp;&nbsp;&nbsp;  
+
+      </div>
+    <div style="width: 411px;float:right;margin: 0 0 0 0;">
+       <input type="date" placeholder="from" name="date_1" id="from" />
+        <input type="date" placeholder="to" name="date_2" id="to" />
+       <br>
+      <input  class="btn dropdown-toggle"  type="submit" value="submit" name="submit" id="submit" align="center"  style="width: 70px; height: 30px; margin: -5px 0 60px 0;float: right;"/>
+    </div>
+</form> 
+
+<script>
+  $(":date").dateinput();
+</script>
+
+
+
+
+ <!--  filtered users table starts here -->
+
+    <link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico" />
+    
+    <title>DataTables example</title>
+    <link href="<?php echo BASE_URL.'public/css/dt/demo_page.css' ?>" rel="stylesheet">
+    <link href="<?php echo BASE_URL.'public/css/dt/demo_table.css' ?>" rel="stylesheet">    
+
+
+    <script type="text/javascript" language="javascript" src="<?php echo BASE_URL.'public/js/dt/jquery.dataTables.js' ?>"> 
+    </script>
+    <script type="text/javascript" language="javascript" src="<?php echo BASE_URL.'public/js/dt/jquery.js' ?>"> 
+    </script>   
+ 
+
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        $('#example').dataTable( {
+          "fnInitComplete": function () {
+            var that = this;
+            this.$('td').click( function () {
+              that.fnFilter( this.innerHTML );
+            } );
+          }
+        } );
+
+          // $("#myselect").click(function(){
+          //  $("#from").animate({top:"100px"}); 
+          //   console.log("you were here");
+          //   });
+
+
+      } );
+    </script>
+    
+
+<body="me">
+ 
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+            <thead>
+                <tr>
+                  <th> User-id </th>                 
+                  <th> Firstname </th>
+                  <th> Lastname </th>
+                  <th> Email Id</th>
+                  <th> status </th>
+                  <th> T & C</th>
+                  <th> Email</th>
+                  <th> Joined at </th>
+                  <th> Last seen </th>
+                  <br>
+                </tr>
+            </thead>
+            <tbody>
+          <?php
+            foreach ($this->data as $val) 
+              { 
+                if($val['toc_accepted']==1)
+                   $toc="accepted";
+                else
+                  $toc="not accepted";
+
+                if($val['email_verified']==1)
+                   $email="verified";
+                else
+                  $email="not verified";
+
+                // if($val['email']=="")
+                //    $email_id="-"; 
+
+                echo "<tr class=gradeA>";
+                echo "<td align='center'>".$val['id']."</td>";                
+                echo "<td align='center'>".$val['firstname']."</td>"; 
+                echo "<td align='center'>".$val['lastname']."</td>"; 
+                echo "<td align='center'>".$val['email']."</td>"; 
+                echo "<td align='center'>".$val['status']."</td>"; 
+                echo "<td align='center'>".$toc."</td>";              
+                echo "<td align='center'>".$email."</td>";                
+                echo "<td align='center'>".$val['created_at']."</td>"; 
+                echo "<td align='center'>".$val['updated_at']."</td>";               
+                echo "</tr>"; 
+              }       
+            ?>
+            </tbody>
+      </table>      
+  </body>
+</html>

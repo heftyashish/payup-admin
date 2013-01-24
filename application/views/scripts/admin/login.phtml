@@ -59,13 +59,15 @@
 			<div class="row-fluid">
 				<div class="well span5 center login-box">
 					<div class="alert alert-info">
-						<?php 
-							if($_SESSION['login_failed']){
-								echo 'enter valid credentials';	
-							}
-							else{
-								echo 'Please login with your Username and Password.';
-							}
+
+						<?php
+						 if($_SESSION['login_failed']){
+							echo "<font color='red'>Login Failed !!</font>";							
+						}											
+						else{
+							echo "Please login with your Username and Password.";							
+						}
+						
 						?>
 						
 					</div>
