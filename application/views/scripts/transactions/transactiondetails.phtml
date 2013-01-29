@@ -31,9 +31,10 @@
   $(":date").dateinput();
 </script>
 
-<form>
-		
-</form>
+<a href ="transactionscsv" class="btn btn-large btn-primary">
+  <i class=""></i>
+  Dowload excel file
+</a>  
 
 
   <br><br>
@@ -67,7 +68,7 @@
             <thead>
                 <tr>
                   <th> Id </th>
-                  <th> Firstname </th>
+                  <th> Name </th>
                   <th> Account Id </th>
                   <th> Amount </th>
                   <th> Current Balance</th>
@@ -84,7 +85,7 @@
                     { 
                       echo "<tr class=gradeA>";
                       echo "<td align='center'>".$val['id']."</td>"; 
-                      echo "<td align='center'>".$val['firstname']."</td>"; 
+                      echo "<td align='center'>".$val['firstname']." ".$val['lastname']. "</td>"; 
                       echo "<td align='center'>".$val['account_id']."</td>"; 
                       echo "<td align='center'>".$val['amount']."</td>"; 
                       echo "<td align='center'>".$val['current_balance']."</td>"; 

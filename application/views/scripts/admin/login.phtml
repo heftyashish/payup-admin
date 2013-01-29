@@ -61,7 +61,8 @@
 					<div class="alert alert-info">
 						<?php 
 							if($_SESSION['login_failed']){
-								echo 'enter valid credentials';	
+								echo "<font color='red'>enter valid credentials</font>";
+								$_SESSION['login_failed']=false;	
 							}
 							else{
 								echo 'Please login with your Username and Password.';

@@ -29,6 +29,13 @@ public function transactiondetailsAction(){
 									}	
 								}		
 				}
+
+public function transactionscsvAction(){
+							$this->_helper->viewRenderer->setNoRender();
+							$this->_helper->layout->disableLayout();
+							$index = new Application_Model_DbTable_Transactions();
+				    	$index->get_transactions_csv();
+}				
 	}
 
 ?>
