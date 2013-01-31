@@ -26,11 +26,11 @@
         </select> &nbsp;&nbsp;&nbsp;  
 
       </div>
-    <div style="width: 411px;float:right;margin: 0 0 0 0;">
-       <input type="date" placeholder="from" name="date_1" id="from" />
-        <input type="date" placeholder="to" name="date_2" id="to" />
+    <div style="width: 353px;float:right;margin: 34px 0 0 0;">
+       <input type="date" placeholder="from" name="date_1" id="from" style="width:160px;" />
+        <input type="date" placeholder="to" name="date_2" id="to" style="width:160px;"/>
        <br>
-      <input  class="btn dropdown-toggle"  type="submit" value="submit" name="submit" id="submit" align="center"  style="width: 70px; height: 30px; margin: -5px 0 60px 0;float: right;"/>
+      <input   type="submit" value="submit" name="submit" id="submit" align="center"  style="width: 70px; height: 30px; margin: 8px 0 60px 0;float: right;"/>
     </div>
 </form> 
 
@@ -83,8 +83,7 @@
             <thead>
                 <tr>
                   <th> User-id </th>                 
-                  <th> Firstname </th>
-                  <th> Lastname </th>
+                  <th> Name </th>
                   <th> Email Id</th>
                   <th> status </th>
                   <th> T & C</th>
@@ -113,8 +112,7 @@
 
                 echo "<tr class=gradeA>";
                 echo "<td align='center'>".$val['id']."</td>";                
-                echo "<td align='center'>".$val['firstname']."</td>"; 
-                echo "<td align='center'>".$val['lastname']."</td>"; 
+                echo "<td align='center'>".$val['firstname']." ".$val['lastname']."</td>"; 
                 echo "<td align='center'>".$val['email']."</td>"; 
                 echo "<td align='center'>".$val['status']."</td>"; 
                 echo "<td align='center'>".$toc."</td>";              
@@ -125,6 +123,14 @@
               }       
             ?>
             </tbody>
-      </table>      
+      </table>   
+<br><br>
+
+<a float="right" href="csv" class="btn btn-large btn-primary" style="
+    float: right;">
+ <i class=""></i>
+ Dowload excel file
+</a>
+
   </body>
 </html>

@@ -53,7 +53,8 @@
 					<div class="alert alert-info">
 						<?php
 						 if($_SESSION['login_failed']){
-							echo "<font color='red'>Login Failed !!</font>";							
+							echo "<font color='red'>Login Failed !!</font>";
+							$_SESSION['login_failed']=false;							
 						}											
 						else{
 							echo "Please login with your Username and Password.";							
