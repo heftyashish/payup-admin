@@ -22,7 +22,7 @@ class AdminController extends Zend_Controller_Action
               
 
                 if($data == 'error'){
-                    echo 'Enter valid credentials';
+                    //echo 'Enter valid credentials';
                     $_SESSION['login_failed']=true;
                     $this->_redirect('admin/login');
                 } 
