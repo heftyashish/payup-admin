@@ -1,7 +1,8 @@
 <?php
-Zend_Session::start();
+//Zend_Session::start();
 //print_r($_SESSION);
-
+echo 'BCD';
+die;
 require_once(APPLICATION_ENV.'_site_constants.php');
 
 ini_set('display_errors', '1');
