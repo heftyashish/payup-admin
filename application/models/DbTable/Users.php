@@ -91,5 +91,44 @@ class Application_Model_DbTable_Users extends Zend_Db_Table_Abstract
 		}
 		else
 			return 'error';
-		}					
+		}	
+
+
+		public function user_csv(){
+			// output headers so that the file is downloaded rather than displayed
+			header('Content-Type: text/csv; charset=utf-8');
+			header('Content-Disposition: attachment; filename=data.csv');
+
+			// create a file pointer connected to the output stream
+			$output = fopen('php://output', 'w');
+
+			// output the column headings
+			fputcsv($output, array('User-id', 'firstname', 'lastname', 'Email Id', 'status', 'T & C', 'Email', 'Joined At', 'Last Seen' ));
+
+			// fetch the data
+			mysql_connect('localhost', 'root', '');
+			mysql_select_db('payup');
+			$rows = mysql_query('SELECT id, firstname, lastname, email, status, toc_accepted, email_verified, created_at, updated_at FROM users');
+			
+			// loop over the rows, outputting them
+
+
+			while ($row = mysql_fetch_assoc($rows) )
+				{
+					if($row['toc_accepted']==1){
+						$row['toc_accepted']="accepted";
+					} 
+					else{
+						$row['toc_accepted']="not accepted";
+					}
+
+					if($row['email_verified']==1){
+						$row['email_verified']="verified";
+					} 
+					else{
+						$row['email_verified']="not verified";
+					}		
+					fputcsv($output, $row);
+				}
+		}				
 }

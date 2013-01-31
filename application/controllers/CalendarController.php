@@ -3,12 +3,10 @@ include("BaseController.php");
 
 class CalendarController extends BaseController
 {
-
-
-  public function indexAction()
-  {
-  
-  }
+    public function indexAction()
+    {
+	  
+	}
 
 	public function calendarAction()
 	{
@@ -20,7 +18,8 @@ class CalendarController extends BaseController
 		$email=$_POST['email'];
 
 		// if($_POST['date_type']=="updated_at"){
-		// 	echo stripos("meme", "@");
+		// 	$lastnames = mysql_query('SELECT lastname FROM users');
+		// 	echo $lastnames[0];
 		// 	die;
 		// }
 		// else{
@@ -42,5 +41,12 @@ class CalendarController extends BaseController
 		
 	}
 
+	  public function csvAction(){
+	      $this->_helper->viewRenderer->setNoRender();
+	      $this->_helper->layout->disableLayout();
+	      $index = new Application_Model_DbTable_Users();
+	      $index->user_csv(); 
+	             }
 }
 
+?>

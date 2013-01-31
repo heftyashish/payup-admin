@@ -16,7 +16,7 @@ class UsersController extends BaseController
             $data = $index->user_all();
             $this->view->assign('data',$data);
                 if($data == 'error'){
-                echo 'Enter valid credentials';
+                     echo 'Enter valid credentials';
                 } 
                      
   }
