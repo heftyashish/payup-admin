@@ -15,12 +15,12 @@ class Application_Model_DbTable_Transactions extends Zend_Db_Table_Abstract
 						 ->join('accounts','accounts.id = transactions.account_id',array('current_balance'))
 						 ->join('users','users.id =accounts.user_id',array('firstname','lastname'));
 
-		$row = $this->fetchAll($select)->toArray();
+			$row = $this->fetchAll($select)->toArray();
 
-			if(!empty($row))
-					return $row ;
-			else
-					return 'error';
+				if(!empty($row))
+						return $row ;
+				else
+						return 'error';
 		}	
 
 
@@ -56,7 +56,7 @@ class Application_Model_DbTable_Transactions extends Zend_Db_Table_Abstract
 		public function get_transactions_csv() {
 					
 			header('Content-Type: text/csv; charset=utf-8');
-			header('Content-Disposition: attachment; filename=transactions.csv');
+			header('Content-Disposition: attachment; filename=transactions_data.csv');
 
 			// create a file pointer connected to the output stream
 			$output = fopen('php://output', 'w');

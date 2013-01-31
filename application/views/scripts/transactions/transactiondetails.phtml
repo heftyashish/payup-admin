@@ -9,7 +9,7 @@
 <form action="transactiondetails" method="post">
     <br>
     <div>
-       Choose the type of transactions
+       Type of transactions
       <select name="users" onchange="">
           <option value="" selected>Default</option>
           <option value="credit">Credit</option>
@@ -17,13 +17,13 @@
         </select>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
+
       <div>
-      Enter the Dates to get the Transactions information
-     
-      <input type="date" placeholder="from" name="date_1"/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="date" placeholder="to" name="date_2"/>
-      <br>
+        Enter Dates 
+        <input type="date" placeholder="from" name="date_1"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="date" placeholder="to" name="date_2"/>
+        <br>
        </div>
       <input type="submit" value="submit" name="submit"/>
 </form> 
@@ -31,11 +31,12 @@
   $(":date").dateinput();
 </script>
 
-<a href ="transactionscsv" class="btn btn-large btn-primary">
-  <i class=""></i>
-  Dowload excel file
-</a>  
-
+<div>
+  <a href ="transactionscsv" class="btn btn-large btn-primary">
+    <i class=""></i>
+    Dowload excel file
+  </a>  
+</div>
 
   <br><br>
     <title>Transaction Details</title>
